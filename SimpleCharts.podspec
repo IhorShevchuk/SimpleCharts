@@ -8,5 +8,5 @@ Pod::Spec.new do |spec|
   spec.source           = { :git => 'https://github.com/emrearmagan/SimpleCharts.git', :tag => spec.version }
   spec.swift_version = '5.0'
   spec.ios.deployment_target = '13.0'
-  spec.source_files = 'SimpleCharts/**/*'
+  spec.source_files = 'Sources/SimpleCharts/**/*'
 end
