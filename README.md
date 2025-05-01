@@ -29,6 +29,8 @@ A simple charting library for iOS.
 - 🖖 Touch events
 - ✨ Bar charts are fully customizable and animated
 
+[📖 Documentation](https://emrearmagan.github.io/SimpleCharts/)
+
 ---
 ### 💻 Table of contents
   1. [Quick Start](#quickStart)
