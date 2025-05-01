@@ -14,12 +14,9 @@ let package = Package(
     targets: [
         .target(
             name: "SimpleCharts",
+            dependencies: [],
             path: "Sources/SimpleCharts",
-            exclude: [],
-            resources: [],
-            linkerSettings: [
-                .linkedFramework("UIKit")
-            ]
-        )
-    ]
+            exclude: ["Info.plist"])
+    ],
+    swiftLanguageVersions: [.v5]
 )
