@@ -29,6 +29,7 @@ public enum BaseChartViewOption {
     case showScrollIndicator(Bool)
     case scrollViewWidthInsets(CGFloat)
     case isScrollable(Bool)
+    case calculateMinY(Bool)
     case insets(UIEdgeInsets)
 }
 
@@ -137,6 +138,8 @@ open class BaseChartView: UIView {
     private var bottomSpace: CGFloat = 30
 
     private var useMinMaxRange: Bool = true
+    
+    private var calculateMinY: Bool = true
 
     var baseEntries: [BaseEntryModel] = [] {
         didSet {
@@ -314,7 +317,8 @@ extension BaseChartView {
             gridValues = [0, 1]
         }
 
-        if var maxValue = baseEntries.max()?.value, var minValue = baseEntries.min()?.value {
+        if var maxValue = baseEntries.max()?.value,
+           var minValue = calculateMinY ? baseEntries.min()?.value : 0.0 {
             if minValue == maxValue {
                 gridValues = [0, 1]
             }
@@ -447,6 +451,8 @@ extension BaseChartView {
                 scrollView.isScrollEnabled = value
             case let .insets(value):
                 insets = value
+            case let .calculateMinY(value):
+                calculateMinY = value
             }
         }
     }

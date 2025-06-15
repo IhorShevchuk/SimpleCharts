@@ -96,7 +96,7 @@ open class BarContainer: CALayer {
 
     override open func setNeedsLayout() {
         super.setNeedsLayout()
-        cornerRadius = cornerRounding
+//        cornerRadius = cornerRounding
         masksToBounds = true
     }
 
