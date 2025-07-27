@@ -312,25 +312,23 @@ extension BaseChartView {
         drawAvgLine()
 
         guard showYAxis else { return }
-        var gridValues: [CGFloat] = [0, 0.5, 1]
+        var gridValues: [Double] = [0, 0.5, 1]
         if numberOfEntries < 3 {
             gridValues = [0, 1]
         }
 
-        if var maxValue = baseEntries.max()?.value,
+        if let maxValue = baseEntries.max()?.value,
            var minValue = calculateMinY ? baseEntries.min()?.value : 0.0 {
             if minValue == maxValue {
                 gridValues = [0, 1]
             }
             minValue = minValue * bottomHorizontalLine
-            maxValue = maxValue * topHorizontalLine
             let minMaxGap = ceil(CGFloat(maxValue - minValue))
 
             for value in gridValues {
                 let height = value * gridLayer.frame.size.height
 
-                var lineValue = 0
-                lineValue = Int((1 - value) * minMaxGap) + Int(minValue)
+                let lineValue = Double((1 - value) * minMaxGap) + minValue
 
                 let textLayer = getDefaultTextLayer()
                 let text = yAxisFormatter?(Double(lineValue)) ?? String(lineValue)
