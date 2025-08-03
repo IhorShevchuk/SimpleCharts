@@ -323,7 +323,7 @@ extension BaseChartView {
                 gridValues = [0, 1]
             }
             minValue = minValue * bottomHorizontalLine
-            let minMaxGap = ceil(CGFloat(maxValue - minValue))
+            let minMaxGap = (Double(maxValue - minValue) * 100).rounded() / 100
 
             for value in gridValues {
                 let height = value * gridLayer.frame.size.height
